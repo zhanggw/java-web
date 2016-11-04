@@ -38,7 +38,7 @@ public class UploadFileServlet extends HttpServlet {
 		upload.setFileSizeMax(MAX_FILE_SIZE);
 		upload.setSizeMax(MAX_REQUEST_SIZE);
 		
-		String uploadPath = getServletContext().getRealPath("./") + File.separator + "upload";
+		String uploadPath = getServletContext().getRealPath("./") + "upload";
 		File uploadDir = new File(uploadPath);
 		if(!uploadDir.exists()) {
 			uploadDir.mkdir();
@@ -66,7 +66,7 @@ public class UploadFileServlet extends HttpServlet {
 		}
 		
 		try {
-			getServletContext().getRequestDispatcher("/message.jsp").forward(req, resp);
+			getServletContext().getRequestDispatcher("/jsp/message.jsp").forward(req, resp);
 		} catch (ServletException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,7 +75,7 @@ public class UploadFileServlet extends HttpServlet {
 	
 	
 	@Override
-	protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		this.doGet(req, resp);
 	}
 }

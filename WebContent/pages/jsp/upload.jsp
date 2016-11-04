@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="/UploadServlet" enctype="multipart/form-data" method="POST">
+	<form action="/JspTest/UploadServlet" enctype="multipart/form-data" method="POST">
 	  选择一个文件:
 	<input type="file" name="uploadFile" />
 	<br/>
