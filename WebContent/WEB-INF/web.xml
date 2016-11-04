@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>JspTest</display-name>
+  <welcome-file-list>
+    <welcome-file>test.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <filter>
+  	<filter-name>LogFilter</filter-name>
+  	<filter-class>org.zhanggw.servlet.filter.LogFilter</filter-class>
+  	<init-param>
+  		<param-name>site</param-name>
+  		<param-value>菜鸟教程</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>LogFilter</filter-name>
+<!--   	<servlet-name>DisplayHeader</servlet-name> -->
+	<url-pattern>/DisplayHeader</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>hitCountFilter</filter-name>
+  	<filter-class>org.zhanggw.servlet.filter.SiteHitCounter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>hitCountFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  	<servlet-name>DisplayHeader</servlet-name>
+  	<servlet-class>org.zhanggw.servlet.filter.DisplayHeaderServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DisplayHeader</servlet-name>
+  	<url-pattern>/DisplayHeader</url-pattern>
+  </servlet-mapping>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/ErrorHandler</location>
+  </error-page>
+  <error-page>
+  	<exception-type>java.io.IOException</exception-type>
+  	<location>/ErrorHandler</location>
+  </error-page>
+</web-app>
